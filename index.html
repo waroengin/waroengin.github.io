@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> 
+  <script src="https://kit.fontawesome.com/c9f09ab60d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="_component-examples.scss">
+</head>
+<style>
+  #generatedName {
+    margin-right: 10px;
+  }
+
+  .purple {
+    background-color: rgb(112, 45, 245);
+  }
+  
+  .custom-tooltip {
+  --bs-tooltip-bg: var(--bd-violet-bg);
+  --bs-tooltip-color: var(--bs-white);
+}
+
+/* Sembunyikan tombol Regenerate All saat lebar layar kurang dari 576px */
+@media (max-width: 576px) {
+  #generateButton {
+    display: none;
+  }
+  #generateBirthDateButton {
+    display: none;
+  }
+  #generatePhoneNumberButton {
+    display: none;
+  }
+  #generateAddressButton {
+    display: none;
+  }
+  #generatePostalCodeButton {
+    display: none;
+  }
+  #generateFormattedNumberButton {
+    display: none;
+  }
+  #noSg {
+    display: none;
+  }
+
+
+}
+
+</style>
+
+<body>
+  <nav class="navbar purple">
+    <div class="container-fluid px-5 mx-4">
+      <a class="navbar-brand">Muh. Rifq</a>
+      <form class="d-flex">
+        <button class="btn btn-outline-light px-4" type="submit">Membership</button>
+      </form>
+    </div>
+  </nav>
+
+
+  <div class="container mt-5 px-4">
+    <div class="card text-center">
+      <div class="card-header">
+        <div class="card-body">
+          <h5 class="card-title">Fake Info Generator</h5>
+          <p class="card-text">Buat bikin Identitas Palsu Negara Singapore</p>
+          <hr class="hr" />
+          <div class="container mt-5 mb-5 col-xs-5">
+            <!-- Name Generator -->
+            <div class="input-group flex-nowrap">
+              <button class="input-group-text" data-bs-toggle="tooltip" data-bs-title="Nama"><i class="fa-regular fa-user"></i></button>
+              <div id="generatedName"class="form-control mx-2" ></div>
+              <button type="button" id="generateButton" class="btn btn-outline-warning mx-1 hiding"><i class="fa-solid fa-rotate"></i></i></button>
+              <button type="button" id="copyButton" class="btn btn-outline-success mx-2"><i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+            <!-- Date Generator -->
+          <div class="input-group flex-nowrap mt-3">
+            <button class="input-group-text" data-bs-toggle="tooltip" data-bs-title="Tanggal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+              <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+            </svg></button>
+            <div id="generatedBirthDate"class="form-control mx-2"  ></div>
+            <button type="button" id="generateBirthDateButton" class="btn btn-outline-warning mx-1"><i class="fa-solid fa-rotate"></i></i></button>
+            <button type="button" id="copyBirthDateButton" class="btn btn-outline-success mx-2"><i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+          <!-- No Telp Generator -->
+            <div class="input-group flex-nowrap mt-3 text-lg-start">
+              <button class="input-group-text" data-bs-toggle="tooltip" data-bs-title="Telepon"><i class="fa-solid fa-phone fa-sm"></i></button>
+              <button class="input-group-text mx-2 fw-semibold" id="noSg" data-bs-toggle="tooltip" data-bs-title="Singapore">+65</i></button>
+              <div id="generatedPhoneNumber"class="form-control me-2 ms-2"  ></div>
+              <button type="button" id="generatePhoneNumberButton" class="btn btn-outline-warning me-1 ms-1 "><i class="fa-solid fa-rotate"></i></i></button>
+              <button type="button" id="copyPhoneNumberButton" class="btn btn-outline-success mx-2"><i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+          <!-- Adress Generator -->
+            <div class="input-group flex-nowrap mt-3">
+              <button class="input-group-text" data-bs-toggle="tooltip" data-bs-title="Alamat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+              </svg></button>
+              <div id="generatedAddress"class="form-control mx-2"  ></div>
+              <button type="button" id="generateAddressButton" class="btn btn-outline-warning mx-1"><i class="fa-solid fa-rotate"></i></i></button>
+              <button type="button" id="copyAddressButton" class="btn btn-outline-success mx-2"><i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+          <!-- Zip Code Generator -->
+            <div class="input-group flex-nowrap mt-3">
+              <button class="input-group-text" data-bs-toggle="tooltip" data-bs-title="Kode Pos"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mailbox" viewBox="0 0 16 16">
+                <path d="M4 4a3 3 0 0 0-3 3v6h6V7a3 3 0 0 0-3-3zm0-1h8a4 4 0 0 1 4 4v6a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a4 4 0 0 1 4-4zm2.646 1A3.99 3.99 0 0 1 8 7v6h7V7a3 3 0 0 0-3-3H6.646z"/>
+                <path d="M11.793 8.5H9v-1h5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.354-.146l-.853-.854zM5 7c0 .552-.448 0-1 0s-1 .552-1 0a1 1 0 0 1 2 0z"/>
+              </svg></button>
+              <div id="generatedPostalCode"class="form-control mx-2"  ></div>
+              <button type="button" id="generatePostalCodeButton" class="btn btn-outline-warning mx-1"><i class="fa-solid fa-rotate"></i></i></button>
+              <button type="button" id="copyPostalCodeButton" class="btn btn-outline-success mx-2"><i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+          <!-- SSN Generator -->
+            <div class="input-group flex-nowrap mt-3">
+              <button class="input-group-text" data-bs-toggle="tooltip" data-bs-title="SSN"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+              </svg></button>
+              <div id="generatedFormattedNumber"class="form-control mx-2"  ></div>
+              <button type="button" id="generateFormattedNumberButton" class="btn btn-outline-warning mx-1"><i class="fa-solid fa-rotate"></i></i></button>
+              <button type="button" id="copyFormattedNumberButton" class="btn btn-outline-success mx-2"><i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+          <div class="d-grid gap-2">
+            <button id="regenerateAllButton" class="btn btn-outline-danger mt-3" type="button"
+            data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-title="Generate All Info">Generate</button>
+            </div>
+            <!-- END OF GENERATOR -->
+
+          </div>
+          
+        </div>
+      </div>
+
+      <script src="/script.js"></script>
+</body>
+</html>
