@@ -1,0 +1,23 @@
+#generatedLastName, #generatedFirstName, #generatedPhoneNumber, #generatedBirthDate, #generatedAddress, #generatedPostalCode, #generatedFormattedNumber{
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  #generatedLastName:hover, #generatedFirstName:hover,#generatedPhoneNumber:hover, #generatedBirthDate:hover, #generatedAddress:hover, #generatedPostalCode:hover, #generatedFormattedNumber:hover {
+    cursor: pointer;
+    background-color: rgb(112, 45, 245);
+    outline: none;
+  }
+  .purple {
+    background-color: rgb(112, 45, 245);
+  }
+  
+  .custom-tooltip {
+  --bs-tooltip-bg: var(--bd-violet-bg);
+  --bs-tooltip-color: var(--bs-white);
+}
+
+.fi{
+    background-size: contain;
+    background-position: 20%;
+    background-repeat: no-repeat;
+}
